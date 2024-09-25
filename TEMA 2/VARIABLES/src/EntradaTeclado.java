@@ -25,7 +25,9 @@ public class EntradaTeclado {
         System.out.println("¿Has trabajado? True or False");
         trabajo=lectorTeclado.nextBoolean();
 
-        System.out.println("Mi nombre es "+nombre+" tengo "+edad+" ,mido "+altura+" y tengo experiencia trabajando? " +trabajo);
+        System.out.println("Mi nombre es "+nombre+" tengo "+edad+" ,mido "+altura+" y " +
+                "" +
+                "tengo experiencia trabajando? " +trabajo);
 
         
 
