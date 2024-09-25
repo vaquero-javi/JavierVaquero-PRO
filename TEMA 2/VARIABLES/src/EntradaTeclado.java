@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.Scanner;  //sirve para luego cuando ejecutemos la maquina podamos escribir y dar valores 
 
 public class EntradaTeclado {
 
@@ -26,6 +26,8 @@ public class EntradaTeclado {
         trabajo=lectorTeclado.nextBoolean();
 
         System.out.println("Mi nombre es "+nombre+" tengo "+edad+" ,mido "+altura+" y tengo experiencia trabajando? " +trabajo);
+
+        
 
 
     }
