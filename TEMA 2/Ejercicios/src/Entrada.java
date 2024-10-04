@@ -12,10 +12,10 @@ public class Entrada {
         //ejercicio6();
         //ejercicio7();
         //ejercicio8();
-        //ejercicio9();
+        ejercicio9();
         //ejercicio10();
         //ejercicio11();
-        ejercicio12();
+        //ejercicio12();
         //ejercicio13();
         //ejercicio14();
         //ejercicio15();
@@ -263,14 +263,14 @@ public class Entrada {
         String palabra1 = escribirTeclado.nextLine();
         System.out.println("Dime otra palabra");
         String palabra2 = escribirTeclado.nextLine();
-        System.out.println("¿Son iguales?"); //pongo la misma palabra en la maquina y me sale como false
+        System.out.println("¿Son iguales?");
         boolean comparar = palabra1.equals(palabra2);
         System.out.println(comparar);
         System.out.println("¿La primera es menor que la segunda?");
-        comparar = palabra1.compareTo(palabra2)==0; //NO ENTIENDO COMO HAGO PARA PONER ESTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        comparar = palabra1.length() < palabra2.length(); //ATENTO DE ESTO QUE NO SUPE HACERLO DE PRIMERAS
         System.out.println(comparar);
         System.out.println("¿Son distintas?");
-        comparar =palabra1  != palabra2;
+        comparar = !palabra1.equals(palabra2);
         System.out.println(comparar);
     }
     public static void ejercicio13(){
@@ -318,7 +318,7 @@ public class Entrada {
         boolean compararIngresos = ingresos < 15000;
         System.out.println("¿Tiene más de 40 años, un nivel de estudios entre 5 y 8, ambos incluisives, " +
                 "y gana menos de 15000 €?");
-        System.out.println(compararEdad && (compararEstudios || compararEstudios2) && compararIngresos);
+        System.out.println(compararEdad && (compararEstudios && compararEstudios2) && compararIngresos);
     }
     public static void ejercicio15(){
         /*
