@@ -12,7 +12,7 @@ public class Entrada {
         //ejercicio6();
         //ejercicio7();
         //ejercicio8();
-        ejercicio9();
+        //ejercicio9();
         //ejercicio10();
         //ejercicio11();
         //ejercicio12();
