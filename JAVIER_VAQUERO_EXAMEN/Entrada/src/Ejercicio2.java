@@ -14,13 +14,13 @@ public class Ejercicio2 {
         System.out.println("Introduce el millar");
         int millares = escribirTeclado.nextInt();
 
-        boolean compMillares = (aleatorio%1000) && (millares%100);
+        boolean compMillares = ((float)aleatorio%1000) && ((float)millares%100);
         System.out.println(compMillares);
-        boolean compCentenas = ((int)aleatorio%100) && ((int)millares%100);
+        boolean compCentenas = ((float)aleatorio%100) && ((float)millares%100);
         System.out.println(compCentenas);
-        boolean compDecenas = ((int)aleatorio%10) && ((int)millares%100);
+        boolean compDecenas = ((float)aleatorio%10) && ((float)millares%100);
         System.out.println(compDecenas);
-        boolean compUnnidades = ((int)aleatorio%1) && ((int)millares%100);
+        boolean compUnnidades = ((float)aleatorio%1) && ((float)millares%100);
         System.out.println(compUnnidades);
 
 
