@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Estructuras control.iml" filepath="$PROJECT_DIR$/Estructuras control.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Estructuras seleccion.iml" filepath="$PROJECT_DIR$/Estructuras seleccion.iml" />
     </modules>
   </component>
 </project>

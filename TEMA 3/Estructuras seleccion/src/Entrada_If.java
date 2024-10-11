@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
-public class Entrada {
+public class Entrada_If {
     static Scanner escribirTeclado = new Scanner(System.in);
     public static void main(String[] args) {
         //EjemploIF();
         //Ejercicio1();
         //Ejercicio2();
-        Ejercicio3();
+        //Ejercicio3();
     }
     public static void EjemploIF(){
         int nota = 6;
@@ -82,7 +82,7 @@ public class Entrada {
     public static void Ejercicio3(){
         System.out.println("Introduce un numero");
         int a = escribirTeclado.nextInt();
-        if (num<0){
+        if (a<0){
             System.out.println("Negativo");
         } else if (a<10) {
             System.out.println("1 digito");
