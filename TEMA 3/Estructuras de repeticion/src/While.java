@@ -74,7 +74,7 @@ public class While {
         /*
         Introducir un entero no negativo, y convertirlo a binario, octal y hexadecimal. (BinarioOctalHexadecimal)
          */
-        System.out.println("Introduce un numero para comvertirlo a binario, octal, hexadecimal");
+        System.out.println("Introduce un numero para convertirlo a binario, octal, hexadecimal");
         int numero = scanner.nextInt();
         int resto;
         String guardarNum = "";
@@ -82,7 +82,7 @@ public class While {
         if (numero < 0) {
             System.out.println("Introduce un numero positivo");
         } else {
-                System.out.println("Convertimos a binario:");
+                System.out.println("CONVERTIMOS A BINARIO:");
             do {
                 resto = numero % 2;
                 numero /= 2;
@@ -93,6 +93,8 @@ public class While {
                 binario+=guardarNum.charAt(i);
             }
             System.out.printf("El binario es %s", binario);
+            System.out.println("CONVERTIMOS A OCTAL:");
+            
 
         }
 
