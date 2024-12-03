@@ -38,7 +38,7 @@ public class While {
             System.out.println("Introduce un numero");
             numero = scanner.nextInt();
             if (numero > 0) {
-                sumatorio = sumatorio + numero;
+                sumatorio += numero;
             }
             System.out.printf("La suma de todos los numeros positivos que has introducido es %d", sumatorio);
         } while (numero != 0);
@@ -76,25 +76,69 @@ public class While {
          */
         System.out.println("Introduce un numero para convertirlo a binario, octal, hexadecimal");
         int numero = scanner.nextInt();
+        int numeroOctal = numero;
+        int numeroHexadecimal = numero;
         int resto;
-        String guardarNum = "";
+
+        String guardarNumBinario = "";
+        String guardarNumOctal = "";
+        String guardarNumHexadecimal = "";
         String binario = "";
+        String octal ="";
+        int hexadecimal;
         if (numero < 0) {
             System.out.println("Introduce un numero positivo");
         } else {
-                System.out.println("CONVERTIMOS A BINARIO:");
+            System.out.println("CONVERTIMOS A BINARIO:");
             do {
                 resto = numero % 2;
                 numero /= 2;
-                guardarNum += resto;
-            } while (numero != 1);
-            guardarNum += 1;
-            for (int i = guardarNum.length()-1; i >= 0; i--) {
-                binario+=guardarNum.charAt(i);
+                guardarNumBinario += resto;
+            } while (numero > 1);
+            guardarNumBinario += 1;
+            for (int i = guardarNumBinario.length() - 1; i >= 0; i--) {
+                binario += guardarNumBinario.charAt(i);
             }
-            System.out.printf("El binario es %s", binario);
+            System.out.printf("El binario es %s\n", binario);
+
+
+            System.out.println("CONVERTIMOS A HEXADECIMAL");                //!!NO ME SALEEEE!!!
+            switch (hexadecimal =Integer.parseInt(binario)){
+                case 1010:
+                    System.out.println("A");
+                    break;
+                case 1011:
+                    System.out.println("B");
+                    break;
+                case 1100:
+                    System.out.println("C");
+                    break;
+                case 1101:
+                    System.out.println("D");
+                    break;
+                case 1110:
+                    System.out.println("E");
+                    break;
+                case 1111:
+                    System.out.println("F");
+                    break;
+            }
+
             System.out.println("CONVERTIMOS A OCTAL:");
-            
+            do {
+                resto = numeroOctal % 8;
+                numeroOctal /= 8;
+                guardarNumOctal += resto;
+            } while (numeroOctal > 7);
+            guardarNumOctal += 1;
+            for (int i = guardarNumOctal.length() - 1; i >= 0; i--) {
+                octal += guardarNumOctal.charAt(i);
+            }
+            System.out.printf("El octal es %s\n", octal);
+
+
+
+
 
         }
 
