@@ -1,0 +1,37 @@
+package model;
+
+final public class Comida extends Consumicion implements Inventariable{
+    private int calorias;
+
+    public Comida() {
+    }
+
+    public Comida(String nombre, int precio, int calorias) {
+        super(nombre, precio);
+        this.calorias = calorias;
+    }
+
+    @Override
+    public void mostrarDatos() {
+        super.mostrarDatos();
+        System.out.println("calorias = " + calorias);
+    }
+
+    @Override
+    public void almacenar() {
+        System.out.println("La comida se almacena en el frigo");
+    }
+
+    @Override
+    public void calculoEnergetico() {
+        System.out.println("El calculo energetico de la comida es "+this.calorias*2);
+    }
+
+    public int getCalorias() {
+        return calorias;
+    }
+
+    public void setCalorias(int calorias) {
+        this.calorias = calorias;
+    }
+}
