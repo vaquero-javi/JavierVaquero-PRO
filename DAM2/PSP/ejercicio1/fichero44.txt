@@ -1,0 +1,22 @@
+
+Interfaz: 192.168.2.184 --- 0xa
+  Direcci¢n de Internet          Direcci¢n f¡sica      Tipo
+  192.168.2.165         44-a3-bb-5e-eb-56     din mico  
+  192.168.2.171         50-5a-65-8f-61-39     din mico  
+  192.168.2.189         a0-d3-65-c6-92-a1     din mico  
+  192.168.2.194         4c-44-5b-15-a2-5c     din mico  
+  192.168.2.195         ac-67-5d-ca-91-f8     din mico  
+  192.168.2.198         74-4c-a1-d5-46-41     din mico  
+  192.168.2.203         f8-5e-a0-4f-47-6e     din mico  
+  192.168.2.208         a8-3b-76-7b-be-53     din mico  
+  192.168.2.209         1c-ce-51-64-26-a7     din mico  
+  192.168.2.210         60-e9-aa-3c-6e-17     din mico  
+  192.168.2.211         d8-43-ae-38-89-32     din mico  
+  192.168.2.222         4c-23-38-3b-d2-8b     din mico  
+  192.168.2.225         5c-c5-63-bf-8e-51     din mico  
+  192.168.2.254         cc-2d-e0-13-c0-40     din mico  
+  224.0.0.2             01-00-5e-00-00-02     est tico  
+  224.0.0.22            01-00-5e-00-00-16     est tico  
+  224.0.0.251           01-00-5e-00-00-fb     est tico  
+  224.0.0.252           01-00-5e-00-00-fc     est tico  
+  255.255.255.255       ff-ff-ff-ff-ff-ff     est tico  
