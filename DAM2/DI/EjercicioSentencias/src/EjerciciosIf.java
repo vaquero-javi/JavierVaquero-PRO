@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class EjerciciosIf {
     Scanner scanner = new Scanner(System.in);
 
+    //Ejercicio 1
     //Lee dos enteros y muestra si el primero es mayor que el segundo.
     public void comparaDosEnteros(){
         System.out.println("1.Lee dos enteros y muestra si el primero es mayor que el segundo.");
@@ -23,6 +24,7 @@ public class EjerciciosIf {
 
     }
 
+    //Ejercicio 2
     //Lee un entero y comprueba si es múltiplo de 20 y si está entre -100 y 100.
     // Muestra uno de los cuatro mensajes posibles.
     public void multiploYrango(){
@@ -44,6 +46,7 @@ public class EjerciciosIf {
         }
     }
 
+    //Ejercicio 3
     //Determina si un número natural de 4 dígitos es capicúa. Si no tiene 4 dígitos, indícalo.
     public void capicua(){
         System.out.println("3.Determina si un número natural de 4 dígitos es capicúa. Si no tiene 4 dígitos, indícalo.");
@@ -67,6 +70,7 @@ public class EjerciciosIf {
 
     }
 
+    //Ejercicio 4
     //Lee un entero. Si es par, incrementa en 1; si es impar, decrementa en 1. Muestra el nuevo valor.
     public void incrementoYdecremento(){
         System.out.println("4.Lee un entero. Si es par, incrementa en 1; si es impar, decrementa en 1. " +
@@ -84,6 +88,7 @@ public class EjerciciosIf {
         }
     }
 
+    //Ejercicio 5
     //Lee un entero y aplica: +2 si es par, +3 si es múltiplo de 3, +5 si es múltiplo de 5; si no cumple ninguna, +1.
     public void incrementoXcondicionales(){
         System.out.println("5.Lee un entero y aplica: +2 si es par, +3 si es múltiplo de 3, +5 si es múltiplo de 5; " +
@@ -114,6 +119,7 @@ public class EjerciciosIf {
         }
     }
 
+    //Ejercicio 6
     //Pide día, mes y año e indica si la fecha es correcta considerando meses de 28, 30 y 31 días. Sin años bisiestos.
     public void validarFecha(){
         System.out.println("6.Pide día, mes y año e indica si la fecha es correcta considerando meses de 28, 30 y 31" +
@@ -130,31 +136,63 @@ public class EjerciciosIf {
                 (dia > 0 && dia <=31)) {
             System.out.println("Entrada: " + dia+ "/" +mes+ "/" +anio);
             System.out.println("Salida: Fecha correcta");
-        }else {
+        } else if ((mes == 4 || mes == 6 || mes == 9 || mes == 11) && (dia > 0 && dia <=30)) {
             System.out.println("Entrada: " + dia+ "/" +mes+ "/" +anio);
-            System.out.println("Salida: Fecha incorrecta");
-        }
-
-        if ((mes == 4 || mes == 6 || mes == 9 || mes == 11) && (dia > 0 && dia <=30)) {
+            System.out.println("Salida: Fecha correcta");
+        } else if (mes == 2 && (dia > 0 && dia <=28)) {
             System.out.println("Entrada: " + dia+ "/" +mes+ "/" +anio);
             System.out.println("Salida: Fecha correcta");
         }else {
             System.out.println("Entrada: " + dia+ "/" +mes+ "/" +anio);
             System.out.println("Salida: Fecha incorrecta");
         }
-
-
-        if (mes == 2 && (dia > 0 && dia <=28)) {
-            System.out.println("Entrada: " + dia+ "/" +mes+ "/" +anio);
-            System.out.println("Salida: Fecha correcta");
-        }else {
-            System.out.println("Entrada: " + dia+ "/" +mes+ "/" +anio);
-            System.out.println("Salida: Fecha incorrecta");
-        }
-
-
-
-
     }
+
+    //Ejercicio 7
+    //Pide una fecha correcta y muestra la del día siguiente suponiendo feb = 28, algunos meses 30 y otros 31.
+    public void diaSiguiente(){
+        System.out.println("Introduce un dia de forma numérica");
+        int dia = scanner.nextInt();
+        System.out.println("Introduce un mes de forma numérica");
+        int mes = scanner.nextInt();
+        System.out.println("Introduce un año de forma numérica");
+        int anio = scanner.nextInt();
+
+        if ((mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes ==8 || mes ==10 || mes ==12) &&
+                (dia > 0 && dia <=31)) {
+            System.out.println("Entrada: " + dia+ "/" +mes+ "/" +anio);
+            if (dia > 0 && dia < 31){
+                dia = dia + 1;
+            }else {
+                dia = 1;
+                mes = mes + 1;
+            }
+            System.out.println("Salida: " + dia+ "/" +mes+ "/" +anio);
+        } else if ((mes == 4 || mes == 6 || mes == 9 || mes == 11) && (dia > 0 && dia <=30)) {
+            System.out.println("Entrada: " + dia+ "/" +mes+ "/" +anio);
+            if (dia > 0 && dia < 30){
+                dia = dia + 1;
+            }else {
+                dia = 1;
+                mes = mes + 1;
+            }
+            System.out.println("Salida: " + dia+ "/" +mes+ "/" +anio);
+        } else if (mes == 2 && (dia > 0 && dia <=28)) {
+            System.out.println("Entrada: " + dia+ "/" +mes+ "/" +anio);
+            if (dia > 0 && dia < 28){
+                dia = dia + 1;
+            }else {
+                dia = 1;
+                mes = mes + 1;
+            }
+            System.out.println("Salida: " + dia+ "/" +mes+ "/" +anio);
+        }else {
+            System.out.println("Entrada: " + dia+ "/" +mes+ "/" +anio);
+            System.out.println("Salida: Fecha incorrecta");
+        }
+    }
+
+
+
 }
 
