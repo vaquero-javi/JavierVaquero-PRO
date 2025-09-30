@@ -1,6 +1,9 @@
 package model;
 
-public class Tarea {
+import java.util.ArrayList;
+import java.util.List;
+
+abstract public class Tarea {
 
     //una tarea tiene una serie de personas
     //cuando se crea la tarea es necesario pedir
@@ -23,27 +26,52 @@ public class Tarea {
     //en caso de no tener ninguna avisar
     //en caso de tener huecos disponibles decir cuantos
 
+    //Crear el metodo que permite agregar un encargo
+    //los encargos deben tener un id unico
+    //Crear el metodo que permite eliminar un encargo
+    //para ello se pide el id y se quita de la lista
+
+    //Listar todos los encargos de una tarea
+
+    //Buscar un encargo por id y mostar sus datos
+
+    //Completar un encargo -> pasar su variable completada a true
+
+    //Mostrar un encargo que estan completados
+
+    //Completar una tarea -> Una tarea quedara completa si todos sus encargos estan completos
+
+
+    //Crear los metdoos de asignar a un encargo a un responsable
+    //Cambiar responsable de tarea
+    //Mostrar tareas por responsable
 
     //variables
     private String titulo, descripcion;
     private boolean prioritario, completada;
     private Persona[] encargados;
+    private ArrayList<Encargo> listaTareas;
 
     //contructores
     public Tarea(){
 
     }
+
     public Tarea(String titulo, String descripcion, boolean prioritario, int numPersonas){
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.prioritario = prioritario;
         encargados = new Persona[numPersonas];
+        listaTareas = new ArrayList<>();
     }
     public Tarea(String titulo, String descripcion, int numPersonas){
         this.titulo = titulo;
         this.descripcion = descripcion;
         encargados = new Persona[numPersonas];
+        listaTareas = new ArrayList<>();
     }
+
+    public abstract void enviarRecordatorio();
     //metodos -> getter / setter
 
     public void asignarResponsable(Persona persona){
@@ -99,6 +127,93 @@ public class Tarea {
 
     }
 
+    private Encargo estaEncargo(int id){
+        for (Encargo encargo: listaTareas ){
+            if (encargo.getId() == id) return encargo;
+        }
+        return null;
+    }
+
+    public void agregarEncargo(Encargo encargo){
+        if (estaEncargo(encargo.getId()) != null){
+            System.out.println("Error en el proceso, no se puede agregar");
+        }else {
+            listaTareas.add(encargo);
+            System.out.println("Agregardo correctamente");
+        }
+    }
+
+    public void borrarEncargp(int id){
+        if (estaEncargo(id) != null){
+            listaTareas.remove(estaEncargo(id));
+            System.out.println("Borrado correctamente");
+        }else {
+            System.out.println("No esta en la lista");
+        }
+    }
+
+    public void listarEncargos(){
+    }
+
+    public void listarEncargosCompletados(){
+
+    }
+
+    public void buscarEncargoId(int id){
+        if (estaEncargo(id)!=null){
+            estaEncargo(id).mostrarDatos();
+        }else {
+            System.out.println("El ID no se encuentra");
+        }
+    }
+
+    public void completarEncargo(int id){
+        if (estaEncargo(id)!=null && !estaEncargo(id).isCompletada()){
+            estaEncargo(id).setCompletada(true);
+            System.out.println("Encargo completado correctamente");
+        }else {
+            System.out.println("El encargo no se puede completar");
+        }
+    }
+
+    public void completarTarea(){
+        for (Encargo encargo : listaTareas){
+            if (!encargo.isCompletada()){
+                System.out.println("No se puede completar la terea");
+                return;
+            }
+        }
+        completada = true;
+        System.out.println("Tarea completada con exito");
+    }
+
+    @Override
+    public String toString() {
+        return "Tarea{" +
+                "titulo='" + titulo + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", prioritario=" + prioritario +
+                ", completada=" + completada +
+                '}';
+    }
+
+
+    public Persona[] getEncargados() {
+        return encargados;
+    }
+
+    public void setEncargados(Persona[] encargados) {
+        this.encargados = encargados;
+    }
+
+    public ArrayList<Encargo> getListaTareas() {
+        return listaTareas;
+    }
+
+    public void setListaTareas(ArrayList<Encargo> listaTareas) {
+        this.listaTareas = listaTareas;
+    }
+
     public String getTitulo() {
         return titulo;
     }
@@ -131,13 +246,5 @@ public class Tarea {
         this.completada = completada;
     }
 
-    @Override
-    public String toString() {
-        return "Tarea{" +
-                "titulo='" + titulo + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", prioritario=" + prioritario +
-                ", completada=" + completada +
-                '}';
-    }
+
 }

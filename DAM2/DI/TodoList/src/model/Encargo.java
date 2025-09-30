@@ -1,5 +1,7 @@
 package model;
 
+//Un encargo debe tener un responsable
+
 public class Encargo {
 
     private int id;
@@ -12,6 +14,12 @@ public class Encargo {
     public Encargo(int id, String descripcion) {
         this.id = id;
         this.descripcion = descripcion;
+    }
+
+    public void mostrarDatos(){
+        System.out.println("id = " + id);
+        System.out.println("descripcion = " + descripcion);
+        System.out.println("completada = " + completada);
     }
 
     public int getId() {

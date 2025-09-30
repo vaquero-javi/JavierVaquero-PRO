@@ -5,7 +5,7 @@ import java.io.InputStreamReader
 fun main(args:Array<String>){
 }
 
-    //escribiendo /leyendo el error en el proceso principal
+    //escribiendo / leyendo el error en el proceso principal
     val nombre = "arp -a"
     val proceso = ProcessBuilder("cmd.exe","/c","arp -a")
     proceso.redirectOutput(ProcessBuilder.Redirect.INHERIT) //escribir

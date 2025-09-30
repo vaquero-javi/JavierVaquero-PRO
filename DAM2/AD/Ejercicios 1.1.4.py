@@ -4,7 +4,7 @@ def ej1():
     for num in numeros:
         contadorSuma = contadorSuma+numeros  
     print(contadorSuma)
-ej1()
+ej1()   
     
 def ej2():
     numero = input("Introduce un numero entero positivo: ")
@@ -43,7 +43,7 @@ ej4()
 def ej5():
     pares = 0
     for num in range(1,100):
-        if (num % 2 == 0):
+        if (num % 2 == 0):                                      
             pares = pares + num
         print(f"La suma de los 100 primeros numeros pares es {pares}")
 ej5()
@@ -70,7 +70,7 @@ ej7()
 
 #9
 def ej9():
-    print("Calculadora de Promedio ")
+    print("Calculadora de promedio ")
     total = int(input("¿Cuántos números vas a introducir?: "))
     suma = 0
     for i in range(total):
@@ -100,7 +100,7 @@ def ej11():
     es_palindromo = True 
 
     for i in range(len(palabra) // 2):
-        if palabra[i] != palabra[-1(i + 1)]:
+        if palabra[i] != palabra[-(i + 1)]:
             es_palindromo = False
             break
 
@@ -183,7 +183,7 @@ def ej18():
             continue
         
         eleccion_computadora = random.choice(opciones)
-        print(f"La computadora eligió: {eleccion_computadora}")
+        print(f"El ordenador eligió: {eleccion_computadora}")
 
         if eleccion_usuario == eleccion_computadora:
             print("Empate.")

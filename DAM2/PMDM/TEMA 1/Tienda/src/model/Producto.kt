@@ -1,6 +1,11 @@
 package model
 
-class Producto(var id:Int, var precio: Double = 10.0, var nombre: String? = null, var descripcion: String? = null) {
+class Producto(
+    var id:Int,
+    var precio: Double = 10.0,
+    var categoria: Categoria = Categoria.Generica,
+    var nombre: String? = null,
+    var descripcion: String? = null) {
 
 
     //CONSTRUCTORES SECUNDARIOS
@@ -25,6 +30,9 @@ class Producto(var id:Int, var precio: Double = 10.0, var nombre: String? = null
         println("ID: $id" )
         println("PRECIO: $precio")
         println("NOMBRE: ${nombre ?: "SIN DEFINIR"}")
+        println("CATEGORIA: ${categoria.name    }")
         println("DESCRIPCION: ${descripcion ?: "SIN DEFINIR"}")
     }
+
+
 }
