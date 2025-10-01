@@ -153,10 +153,17 @@ abstract public class Tarea {
     }
 
     public void listarEncargos(){
+        for (Encargo item : listaTareas) {
+            item.mostrarDatos();
+        }
     }
 
     public void listarEncargosCompletados(){
-
+        for (Encargo encargo: listaTareas) {
+            if(encargo.isCompletada()){
+                encargo.mostrarDatos();
+            }
+        }
     }
 
     public void buscarEncargoId(int id){

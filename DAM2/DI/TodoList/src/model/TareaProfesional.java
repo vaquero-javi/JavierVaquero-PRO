@@ -28,8 +28,8 @@ public class TareaProfesional extends Tarea{
 
     public TareaProfesional(String titulo, String descripcion, int numPersonas, int presupuesto, Date fechaLimite){
         super(titulo,descripcion,numPersonas);
-        this.fechaLimite;
-        this.presupuesto;
+        this.fechaLimite = fechaLimite;
+        this.presupuesto = presupuesto;
     }
 
     @Override
