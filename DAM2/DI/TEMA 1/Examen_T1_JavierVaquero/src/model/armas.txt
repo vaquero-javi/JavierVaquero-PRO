@@ -1,0 +1,37 @@
+Armas tradicionales
+
+Mjölnir (El martillo de Thor)
+id: 1
+nombre: "Mjölnir"
+nivel: 10
+nivelPotencia: 95
+Escudo del Capitán América
+id: 2
+nombre: "Escudo del Capitán América"
+nivel: 8
+nivelPotencia: 85
+Guantelete del Infinito
+id: 3
+nombre: "Guantelete del Infinito"
+nivel: 12
+nivelPotencia: 100
+
+Armas boilógicas
+Veneno de Extremis
+id: 1
+nombre: "Veneno de Extremis"
+nivel: 9
+nivelPotencia: 90
+descripcion: "Un suero biotecnológico que mejora las capacidades físicas y de regeneración, pero con el riesgo de sobrecalentamiento mortal."
+Virus Carnage
+id: 2
+nombre: "Virus Carnage"
+nivel: 10
+nivelPotencia: 95
+descripcion: "Un virus basado en el simbionte Carnage, capaz de controlar el cuerpo y la mente de la víctima, volviéndola extremadamente agresiva."
+Suero del Super Soldado
+id: 3
+nombre: "Suero del Super Soldado"
+nivel: 8
+nivelPotencia: 85
+descripcion: "Un suero diseñado para crear soldados perfectos, otorgando fuerza sobrehumana, resistencia y una mejora significativa de las habilidades físicas."
