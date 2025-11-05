@@ -1,0 +1,12 @@
+INFORME DETALLADO
+==============================
+
+PALABRAS ÚNICAS: 20
+PALABRAS TOTALES: 12345
+
+TOP 5 PALABRAS MÁS FRECUENTES:
+1. sol: 618 veces
+2. luz: 618 veces
+3. cielo: 618 veces
+4. mar: 618 veces
+5. tierra: 618 veces
