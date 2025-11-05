@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:drawableStart="@drawable/mail"
+        android:drawableStart="@drawable/email"
         android:hint="Introduce correo"
         android:inputType="textEmailAddress"
         android:gravity="center"
@@ -35,7 +35,7 @@
         android:id="@+id/editPass"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/passwd"
+        android:drawableStart="@drawable/pass"
         android:gravity="center"
         android:hint="Introduce password"
         android:inputType="textPassword"
@@ -94,7 +94,7 @@
 
     <Button
         android:id="@+id/botonLogin"
-        android:text="Login"
+        android:text="@string/text_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
