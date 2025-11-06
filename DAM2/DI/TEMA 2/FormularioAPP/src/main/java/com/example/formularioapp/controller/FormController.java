@@ -1,7 +1,5 @@
 package com.example.formularioapp.controller;
 
-import com.example.formularioapp.HelloApplication;
-import com.example.formularioapp.model.Usuario;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -11,62 +9,55 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
-import com.example.formularioapp.model.Usuario;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+import com.example.formularioapp.HelloApplication;
+import com.example.formularioapp.model.Usuario;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class FormController implements Initializable {
 
     @FXML
+    private Button botonDetalle;
+    @FXML
     private Button botonAgregar;
-
     @FXML
     private Button botonEliminar;
-
-    @FXML
-    private Button botonDetalle;
-
     @FXML
     private CheckBox checkDisponibilidad;
-
     @FXML
     private ComboBox<Integer> comboEdad;
-
     @FXML
     private BorderPane panelGeneral;
     @FXML
     private ListView<Usuario> listViewUsuarios;
-
     @FXML
     private GridPane parteDerecha;
-
     @FXML
     private RadioButton radioFemenino;
-
     @FXML
     private RadioButton radioMasculino;
-
     @FXML
     private TextField texfieldNombre;
-
     @FXML
     private TextField textfieldCorreo;
-
     @FXML
     private TextField textfieldLocalizacion;
-
     @FXML
     private ToggleButton toggleLista;
+    @FXML
+    private MenuItem menuEliminar, menuDetalle, menuLista;
 
     private ToggleGroup grupoGenero;
 
@@ -82,9 +73,12 @@ public class FormController implements Initializable {
     }
 
     private void acciones() {
+        botonDetalle.setOnAction(new ManejoActions());
         botonAgregar.setOnAction(new ManejoActions());
         botonEliminar.setOnAction(new ManejoActions());
-        botonDetalle.setOnAction(new ManejoActions());
+        menuDetalle.setOnAction(new ManejoActions());
+        menuEliminar.setOnAction(new ManejoActions());
+        menuLista.setOnAction(new ManejoActions());
         checkDisponibilidad.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue,
@@ -137,12 +131,20 @@ public class FormController implements Initializable {
     }
 
     private Usuario estaUsuario(String correo) {
+
         for (Usuario item : listaUsuarios) {
             if (item.getCorreo().equalsIgnoreCase(correo)) {
                 return item;
             }
         }
+
         return null;
+    }
+
+    public void actualizarUsuario(Usuario u){
+        //actualizar el usuario
+        System.out.println("Contestacioón realizada con éxito");
+
     }
 
     class ManejoActions implements EventHandler<ActionEvent> {
@@ -166,6 +168,7 @@ public class FormController implements Initializable {
                     int edad = comboEdad.getSelectionModel().getSelectedItem();
 
                     if (estaUsuario(correo) != null) {
+
                         System.out.println("El usuario ya esta en la lista");
                     } else {
                         Usuario usuario = new Usuario(
@@ -176,30 +179,64 @@ public class FormController implements Initializable {
                         limpiarDatos();
                     }
 
-
-                } else {
-                    System.out.println("Error, faltan datoss");
                 }
 
 
-            } else if (actionEvent.getSource() == botonEliminar) {
-            } else if (actionEvent.getSource() == botonDetalle) {
+                // limpiar todos los datso
+            }
+            else if (actionEvent.getSource() == botonDetalle || actionEvent.getSource() == menuDetalle)
+            {
                 int posicionSeleccionada = listViewUsuarios.getSelectionModel().getSelectedIndex();
-                Usuario usuarioSeleccionado = listViewUsuarios.getSelectionModel().getSelectedItem();
-                System.out.println("La posicion selecionada es " + posicionSeleccionada);
-                System.out.println("El elemento selecionado es " + usuarioSeleccionado.getCorreo());
-            } else if (actionEvent.getSource() == botonEliminar) {
+                if (posicionSeleccionada!=-1){
+                    Usuario usuario = listViewUsuarios.getSelectionModel().getSelectedItem();
+                    Stage ventanaDetalle = new Stage();
+                    FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("detalle-view.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                        DialogoController dialogoController = loader.getController();
+                        dialogoController.setUsuario(usuario);
+                        dialogoController.setFormController(FormController.this);
+                        Scene scene = new Scene(root);
+                        ventanaDetalle.setScene(scene);
+                        ventanaDetalle.initModality(Modality.APPLICATION_MODAL);
+                        ventanaDetalle.setTitle("Ventana detalle");
+                        ventanaDetalle.show();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+
+                //Usuario usuarioSeleccionado = listViewUsuarios.getSelectionModel().getSelectedItem();
+                //System.out.println("La posicion seleccionada es " + posicionSeleccionada);
+                //System.out.println("El elemento seleccionado es " + usuarioSeleccionado.getCorreo());
+
+
+            }
+            else if (actionEvent.getSource() == botonEliminar || actionEvent.getSource() == menuEliminar) {
                 if (listViewUsuarios.getSelectionModel().getSelectedIndex() != -1) {
                     listaUsuarios.remove(listViewUsuarios.getSelectionModel().getSelectedIndex());
-                }else {
+                } else {
                     System.out.println("No hay nada seleccionado");
                     Stage ventanaDialogo = new Stage();
-                    ventanaDialogo.setTitle("Confirmación");
+                    try {
+                        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("dialogo-view.fxml"));
+                        Scene scene = new Scene(loader.load());
+                        ventanaDialogo.setScene(scene);
+                        ventanaDialogo.setTitle("Confirmacion");
+                        ventanaDialogo.setResizable(false);
+                        ventanaDialogo.initModality(Modality.APPLICATION_MODAL);
+                        ventanaDialogo.showAndWait();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
 
-                    FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("dialogo-view-fxml "));
-                    ventanaDialogo.show();
                 }
+
             }
+
+
         }
     }
 }
+

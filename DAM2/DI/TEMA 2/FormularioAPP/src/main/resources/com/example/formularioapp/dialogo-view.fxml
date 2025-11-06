@@ -19,10 +19,8 @@
 <BorderPane fx:id="panelGeneral" maxHeight="-Infinity" maxWidth="-Infinity"
             minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0"
             prefWidth="200.0" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.formularioapp.controller.FormController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.formularioapp.controller.FormController">
     <center>
     <Label text="Por favor selecciona un elemento"></Label>
-    <padding>
-
-    </padding>
+    </center>
 </BorderPane>
