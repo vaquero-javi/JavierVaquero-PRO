@@ -141,7 +141,7 @@ public class FormController implements Initializable {
         return null;
     }
 
-    public void actualizarUsuario(Usuario u){
+    public void actualizarUsuario(Usuario u) {
         //actualizar el usuario
         System.out.println("Contestacioón realizada con éxito");
 
@@ -151,7 +151,8 @@ public class FormController implements Initializable {
 
         @Override
         public void handle(ActionEvent actionEvent) {
-            if (actionEvent.getSource() == botonAgregar) {
+            if (actionEvent.getSource() == botonAgregar)
+            {
 
 
                 if (!texfieldNombre.getText().isEmpty()
@@ -187,7 +188,7 @@ public class FormController implements Initializable {
             else if (actionEvent.getSource() == botonDetalle || actionEvent.getSource() == menuDetalle)
             {
                 int posicionSeleccionada = listViewUsuarios.getSelectionModel().getSelectedIndex();
-                if (posicionSeleccionada!=-1){
+                if (posicionSeleccionada != -1) {
                     Usuario usuario = listViewUsuarios.getSelectionModel().getSelectedItem();
                     Stage ventanaDetalle = new Stage();
                     FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("detalle-view.fxml"));
@@ -213,7 +214,8 @@ public class FormController implements Initializable {
 
 
             }
-            else if (actionEvent.getSource() == botonEliminar || actionEvent.getSource() == menuEliminar) {
+            else if (actionEvent.getSource() == botonEliminar || actionEvent.getSource() == menuEliminar)
+            {
                 if (listViewUsuarios.getSelectionModel().getSelectedIndex() != -1) {
                     listaUsuarios.remove(listViewUsuarios.getSelectionModel().getSelectedIndex());
                 } else {
@@ -233,6 +235,9 @@ public class FormController implements Initializable {
 
                 }
 
+            }
+            else if (actionEvent.getSource() == menuLista) {
+                toggleLista.setSelected(!toggleLista.isSelected());
             }
 
 

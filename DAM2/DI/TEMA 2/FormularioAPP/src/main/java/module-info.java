@@ -8,12 +8,18 @@ module com.example.formularioapp {
 
     requires lombok;
     requires java.desktop;
+    requires java.sql;
 
     opens com.example.formularioapp to javafx.fxml;
     exports com.example.formularioapp;
 
-    opens com.example.formularioapp.model to lombok;
+    opens com.example.formularioapp.model to lombok, java.sql;
     exports com.example.formularioapp.model;
+
     exports com.example.formularioapp.controller;
     opens com.example.formularioapp.controller to javafx.fxml;
+
+
+
+
 }
