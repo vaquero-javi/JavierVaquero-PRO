@@ -18,15 +18,20 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import com.example.formularioapp.HelloApplication;
+import com.example.formularioapp.dao.UsuarioDAOImp;
 import com.example.formularioapp.model.Usuario;
 
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
 public class FormController implements Initializable {
+
+    @FXML
+    private MenuItem menuEliminar, menuDetalle, menuLista;
 
     @FXML
     private Button botonDetalle;
@@ -42,27 +47,34 @@ public class FormController implements Initializable {
     private BorderPane panelGeneral;
     @FXML
     private ListView<Usuario> listViewUsuarios;
+
     @FXML
     private GridPane parteDerecha;
+
     @FXML
     private RadioButton radioFemenino;
+
     @FXML
     private RadioButton radioMasculino;
+
     @FXML
     private TextField texfieldNombre;
+
     @FXML
     private TextField textfieldCorreo;
+
     @FXML
     private TextField textfieldLocalizacion;
+
     @FXML
     private ToggleButton toggleLista;
-    @FXML
-    private MenuItem menuEliminar, menuDetalle, menuLista;
 
     private ToggleGroup grupoGenero;
 
     private ObservableList<Integer> listaEdades;
     private ObservableList<Usuario> listaUsuarios;
+
+    private UsuarioDAOImp usuarioDAOImp;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -79,6 +91,8 @@ public class FormController implements Initializable {
         menuDetalle.setOnAction(new ManejoActions());
         menuEliminar.setOnAction(new ManejoActions());
         menuLista.setOnAction(new ManejoActions());
+
+        //para cuando el checkbox está seleccionado, habilita el botonAgregar
         checkDisponibilidad.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue,
@@ -87,6 +101,7 @@ public class FormController implements Initializable {
 
             }
         });
+        //para mostrar/ocultar la lista
         toggleLista.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue,
@@ -101,16 +116,18 @@ public class FormController implements Initializable {
     }
 
     private void instancias() {
+        usuarioDAOImp = new UsuarioDAOImp();
         grupoGenero = new ToggleGroup();
-        grupoGenero.getToggles().addAll(radioMasculino, radioFemenino);
         listaEdades = FXCollections.observableArrayList();
-        listaUsuarios = FXCollections.observableArrayList();
-        for (int i = 18; i < 91; i++) {
-            listaEdades.add(i);
-        }
+        listaUsuarios =
+                FXCollections.observableArrayList(usuarioDAOImp.obtenerUsuarios());
     }
 
     private void initGUI() {
+        grupoGenero.getToggles().addAll(radioMasculino, radioFemenino);
+        for (int i = 18; i < 91; i++) {
+            listaEdades.add(i);
+        }
         listViewUsuarios.setItems(listaUsuarios);
         comboEdad.setItems(listaEdades);
         botonAgregar.setDisable(!checkDisponibilidad.isSelected());
@@ -142,8 +159,8 @@ public class FormController implements Initializable {
     }
 
     public void actualizarUsuario(Usuario u) {
-        //actualizar el usuario
-        System.out.println("Contestacioón realizada con éxito");
+        // actualizar el usuario
+        System.out.println("Contestacion realizada con exito");
 
     }
 
@@ -151,44 +168,64 @@ public class FormController implements Initializable {
 
         @Override
         public void handle(ActionEvent actionEvent) {
-            if (actionEvent.getSource() == botonAgregar)
-            {
-
-
+            if (actionEvent.getSource() == botonAgregar) {
                 if (!texfieldNombre.getText().isEmpty()
                         && !textfieldCorreo.getText().isEmpty()
                         && !textfieldLocalizacion.getText().isEmpty()
                         && grupoGenero.getSelectedToggle() != null
                         && comboEdad.getSelectionModel().getSelectedItem() >= 0
                 ) {
+                    //crear usuario
                     String nombre = texfieldNombre.getText();
                     String correo = textfieldCorreo.getText();
                     String localizacion = textfieldLocalizacion.getText();
                     String genero = ((RadioButton) grupoGenero.getSelectedToggle()).getText();
                     boolean disponibilidad = checkDisponibilidad.isSelected();
                     int edad = comboEdad.getSelectionModel().getSelectedItem();
+                    Usuario usuario = new Usuario(
+                            nombre, correo, localizacion, genero, edad, disponibilidad
+                    );
+                    //manejo de errores SQL     MIRAR BIEN LAS ALERT QUE SON PESTAÑAS YA HECHAS
+                    boolean fallo = false;
+                    try {
+                        usuarioDAOImp.insertarUsuario(usuario);
+                        listaUsuarios.add(usuario);
+                    } catch (SQLException e) {
+                        fallo = true;
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error en insercion");
+                        alert.setContentText("Mail duplicado, por favor introduce uno nuevo");
+                        alert.show();
+                    }
+                    if (!fallo){
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Insercion correcta");
+                        alert.setContentText("Usuario insertado correctamente");
+                        alert.show();
+                        limpiarDatos();
+                    }
 
+                    /*
                     if (estaUsuario(correo) != null) {
 
                         System.out.println("El usuario ya esta en la lista");
                     } else {
-                        Usuario usuario = new Usuario(
-                                nombre, correo, localizacion, genero, edad, disponibilidad
-                        );
+
                         listaUsuarios.add(usuario);
                         System.out.println("Usuario agregado correctamente");
                         limpiarDatos();
                     }
 
+                     */
                 }
-
 
                 // limpiar todos los datso
             }
-            else if (actionEvent.getSource() == botonDetalle || actionEvent.getSource() == menuDetalle)
-            {
+            //ABRIR LA VENTANA MENU SI LE DAS AL BOTON DETALLE O AL MENU DETALLE
+            else if (actionEvent.getSource() == botonDetalle || actionEvent.getSource() == menuDetalle ) {
                 int posicionSeleccionada = listViewUsuarios.getSelectionModel().getSelectedIndex();
                 if (posicionSeleccionada != -1) {
+                    //abre una ventana modal con detalles
                     Usuario usuario = listViewUsuarios.getSelectionModel().getSelectedItem();
                     Stage ventanaDetalle = new Stage();
                     FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("detalle-view.fxml"));
@@ -207,18 +244,19 @@ public class FormController implements Initializable {
                         throw new RuntimeException(e);
                     }
                 }
+                /*Usuario usuarioSeleccionado = listViewUsuarios.getSelectionModel().getSelectedItem();
+                System.out.println("La posicion seleccionada es " + posicionSeleccionada);
+                System.out.println("El elemento seleccionado es " + usuarioSeleccionado.getCorreo());
 
-                //Usuario usuarioSeleccionado = listViewUsuarios.getSelectionModel().getSelectedItem();
-                //System.out.println("La posicion seleccionada es " + posicionSeleccionada);
-                //System.out.println("El elemento seleccionado es " + usuarioSeleccionado.getCorreo());
-
+                 */
 
             }
-            else if (actionEvent.getSource() == botonEliminar || actionEvent.getSource() == menuEliminar)
-            {
+            //ELIMINAR USUARUIO CUANDO LE DES AL BOTON ELIMINAR O AL MENU ELIMINAR
+            else if (actionEvent.getSource() == botonEliminar || actionEvent.getSource() == menuEliminar) {
                 if (listViewUsuarios.getSelectionModel().getSelectedIndex() != -1) {
                     listaUsuarios.remove(listViewUsuarios.getSelectionModel().getSelectedIndex());
                 } else {
+                    //ABRE PANTALLA DE DIALOGO SI NO HAY SELECCION
                     System.out.println("No hay nada seleccionado");
                     Stage ventanaDialogo = new Stage();
                     try {
@@ -236,12 +274,9 @@ public class FormController implements Initializable {
                 }
 
             }
-            else if (actionEvent.getSource() == menuLista) {
+            else if (actionEvent.getSource() == menuLista){
                 toggleLista.setSelected(!toggleLista.isSelected());
             }
-
-
         }
     }
 }
-

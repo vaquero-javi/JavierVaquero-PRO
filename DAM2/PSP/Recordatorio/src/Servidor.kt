@@ -1,11 +1,34 @@
 import java.net.ServerSocket
+import java.io.BufferedReader
+import java.io.InputStreamReader
 
 fun main() {
-    val servidor = WergSocket("1237.0.0.10")12345
+    try {
+        // Crear servidor en puerto 12345
+        val servidor = ServerSocket(12345)
+        println("🖥️ Servidor iniciado en puerto 12345...")
 
-    val clientes = servidor.accept()
+        // Aceptar conexión de cliente
+        val cliente = servidor.accept()
+        println("🔗 Cliente conectado: ${cliente.inetAddress.hostAddress}")
 
-    println((clientes.getInputStre))
+        // Leer datos del cliente
+        val reader = BufferedReader(InputStreamReader(cliente.getInputStream()))
+        val mensaje = reader.readLine()
+        println("📨 Mensaje recibido: $mensaje")
 
+        // Escribir respuesta al cliente
+        val writer = cliente.getOutputStream().bufferedWriter()
+        writer.write("Hola cliente! Recibí tu mensaje\n")
+        writer.flush()
 
+        // Cerrar conexiones
+        reader.close()
+        writer.close()
+        cliente.close()
+        servidor.close()
+
+    } catch (e: Exception) {
+        println("❌ Error: ${e.message}")
+    }
 }
