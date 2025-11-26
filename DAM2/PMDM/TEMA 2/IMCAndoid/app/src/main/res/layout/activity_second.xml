@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#ffffff">
+
+    <!-- Título -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resultado IMC"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp" />
+
+    <!-- Imagen del estado -->
+    <ImageView
+        android:id="@+id/imageViewEstado"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp" />
+
+    <!-- Valor del IMC -->
+    <TextView
+        android:id="@+id/textViewIMC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="22.5"
+        android:textSize="40sp"
+        android:textColor="#2196F3"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Índice de Masa Corporal"
+        android:textSize="16sp"
+        android:textColor="#666666"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp" />
+
+    <!-- Estado -->
+    <TextView
+        android:id="@+id/textViewEstado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Peso normal"
+        android:textSize="20sp"
+        android:textColor="#27ae60"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:background="#e8f5e8"
+        android:padding="15dp"
+        android:layout_marginBottom="50dp" />
+
+    <!-- Botón Volver -->
+    <Button
+        android:id="@+id/buttonVolver"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="VOLVER"
+        android:textSize="18sp"
+        android:textColor="#2196F3"
+        android:background="#e3f2fd" />
+
+</LinearLayout>

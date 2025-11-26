@@ -10,7 +10,8 @@ import lombok.NoArgsConstructor;
 @Data
 
 public class Usuario {
-    private int operando1, operando2, simboloOperando, retroceso, resultado;
+    private double operando1, operando2 ,resultado;
+    private String simboloOperando, textoEnPantalla;
 
     @Override
     public String toString() {

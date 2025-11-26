@@ -18,7 +18,7 @@
 
 <BorderPane fx:id="panelGeneral" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.calculadorafx.controller.FormController">
    <center>
-      <VBox prefHeight="400.0" prefWidth="440.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="panelCentral" prefHeight="400.0" prefWidth="440.0" BorderPane.alignment="CENTER">
          <children>
             <TextField fx:id="pantalla" prefHeight="11.0" prefWidth="210.0" />
             <HBox prefHeight="44.0" prefWidth="330.0">
@@ -183,7 +183,7 @@
       </MenuBar>
    </top>
    <right>
-      <VBox alignment="CENTER" prefHeight="330.0" prefWidth="91.0" spacing="20.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="parteDerecha" alignment="CENTER" prefHeight="330.0" prefWidth="91.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="botonRaizCuadrada" mnemonicParsing="false" text="√" />
             <Button fx:id="botonAbrirParentesis" mnemonicParsing="false" text="(" />

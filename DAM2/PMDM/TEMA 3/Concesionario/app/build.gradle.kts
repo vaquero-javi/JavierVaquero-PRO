@@ -5,7 +5,9 @@ plugins {
 
 android {
     namespace = "com.example.concesionario"
-    compileSdk = 36
+    compileSdk {
+        version = release(36)
+    }
 
     defaultConfig {
         applicationId = "com.example.concesionario"
@@ -33,13 +35,13 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
     viewBinding{
         enable = true
     }
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

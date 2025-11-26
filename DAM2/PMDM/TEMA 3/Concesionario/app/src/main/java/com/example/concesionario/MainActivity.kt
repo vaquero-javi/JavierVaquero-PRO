@@ -1,15 +1,14 @@
 package com.example.concesionario
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.concesionario.databinding.ActivityMainBinding
 import com.example.concesionario.model.Marca
+import com.example.concesionario.ui.SecondActivity
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
@@ -48,12 +47,22 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     private fun acciones() {
 
         binding.botonFiltrar.setOnClickListener {
+            /*
             Snackbar.make(
                 it,
                 "La seleccion del spinner de vehiculos es " +
                         "${binding.spinnerMarcas.adapter.getItem(binding.spinnerMarcas.selectedItemPosition)}",
                 Snackbar.LENGTH_SHORT
             ).show()
+
+             */
+            //INTENT -> SIRVE PARA CAMBIAR DE PANTALLA
+            val intent = Intent(applicationContext, SecondActivity::class.java)
+            //INTENT.PUTEXTRA -> SIRVE PARA PASAR DATOS A LA OTRA PANTALLA
+            intent.putExtra("vehiculo",binding.spinnerVehiculos.selectedItem.toString())
+            intent.putExtra("marca",
+                binding.spinnerMarcas.adapter.getItem(binding.spinnerMarcas.selectedItemPosition) as Marca)
+            startActivity(intent)
         }
         binding.spinnerVehiculos.onItemSelectedListener = this
         binding.spinnerMarcas.onItemSelectedListener = this
@@ -81,6 +90,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
 
             binding.spinnerMarcas.id -> {
+                /*
                 Snackbar.make(
                     view!!,
                     "La seleccion del spinner de vehiculos es ${
@@ -89,7 +99,10 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                         ) as Marca).nombre
                     }",
                     Snackbar.LENGTH_SHORT
-                ).show()
+                ).show()*/
+
+                val marcaSeleccionada: Marca = parent.adapter.getItem(position) as Marca
+                binding.imagenMarca.setImageResource(marcaSeleccionada.imagen)
             }
         }
 

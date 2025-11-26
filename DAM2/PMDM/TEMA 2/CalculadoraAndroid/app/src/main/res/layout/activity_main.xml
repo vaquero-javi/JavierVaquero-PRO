@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="#f0f0f0">
+
+    <!-- Pantalla -->
+    <TextView
+        android:id="@+id/pantalla"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#ffffff"
+        android:gravity="end|center_vertical"
+        android:text="0"
+        android:textSize="40sp"
+        android:padding="20dp"
+        android:textColor="#000000" />
+
+    <!-- Botones básicos -->
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp">
+
+        <!-- Fila 1 -->
+        <TableRow>
+            <Button
+                android:id="@+id/botonLimpiar"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:text="C"
+                android:textSize="25sp"
+                android:background="#ff4444"
+                android:textColor="#ffffff" />
+
+            <Button
+                android:id="@+id/botonBorrar"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:text="⌫"
+                android:textSize="25sp"
+                android:background="#ff8800"
+                android:textColor="#ffffff" />
+
+            <Button
+                android:id="@+id/botonDividir"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:text="/"
+                android:textSize="25sp"
+                android:background="#4444ff"
+                android:textColor="#ffffff" />
+        </TableRow>
+
+        <!-- Fila 2 -->
+        <TableRow>
+            <Button
+                android:id="@+id/boton7"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:text="7"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/boton8"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:text="8"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/boton9"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:text="9"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/botonMultiplicar"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:text="×"
+                android:textSize="25sp"
+                android:background="#4444ff"
+                android:textColor="#ffffff" />
+        </TableRow>
+
+        <!-- Fila 3 -->
+        <TableRow>
+            <Button
+                android:id="@+id/boton4"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:text="4"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/boton5"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:text="5"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/boton6"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:text="6"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/botonRestar"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:text="-"
+                android:textSize="25sp"
+                android:background="#4444ff"
+                android:textColor="#ffffff" />
+        </TableRow>
+
+        <!-- Fila 4 -->
+        <TableRow>
+            <Button
+                android:id="@+id/boton1"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:text="1"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/boton2"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:text="2"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/boton3"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:text="3"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/botonSumar"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:text="+"
+                android:textSize="25sp"
+                android:background="#4444ff"
+                android:textColor="#ffffff" />
+        </TableRow>
+
+        <!-- Fila 5 -->
+        <TableRow>
+            <Button
+                android:id="@+id/boton0"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="2"
+                android:layout_margin="5dp"
+                android:text="0"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/botonPunto"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:text="."
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/botonIgual"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:text="="
+                android:textSize="25sp"
+                android:background="#44aa44"
+                android:textColor="#ffffff" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>
