@@ -9,5 +9,5 @@ class Producto(
     var precio: Double,
     var descripcion: String,
     var categoria: String,
-    var imagen: String): Serializable {
-}
+    var imagen: String
+) : Serializable

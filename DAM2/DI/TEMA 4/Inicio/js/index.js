@@ -35,10 +35,10 @@ if (respuesta) {
 let nombre = prompt("Por favor, introduce tu nombre: ");
 console.log(`El nombre introducido es: ${nombre}`);
 
-let num1 = parseInt(prompt("Introducel el primer numero:"))
+let num1 = Number(prompt("Introducel el primer numero:"))
 console.log(`El primer numero es ${num1}`)
 
-let num2 = parseInt(prompt("Introduce otro numero:"))
+let num2 = Number(prompt("Introduce otro numero:"))
 console.log("El segundo numero es " + num2)
 
 let operando = prompt("Introduce el operando (+,-,*,/): ")

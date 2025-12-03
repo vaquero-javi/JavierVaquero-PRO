@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tienda.adapter.AdapterProducto
 import com.example.tienda.databinding.ActivityMainBinding
+import com.example.tienda.dataset.DataSet
 import com.example.tienda.model.Producto
 
 class MainActivity : AppCompatActivity() {
@@ -19,14 +20,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val lista: ArrayList<Producto> = arrayListOf(
-            Producto(1, "Nombre1", 12, 10.0, "descripcion1", "categoria1", "img1"),
-            Producto(2, "Nombre2", 12, 10.0, "descripcion2", "categoria2", "img2")
-        )
+        val lista: ArrayList<Producto> = DataSet.lista
+        //quiero obtener la lista de productos de una categoria determinada
         adapterProducto = AdapterProducto(lista, this)
 
         if (resources.configuration.orientation == 1) {
-            binding.recyclerProductos.layoutManager == LinearLayoutManager(
+            binding.recyclerProductos.layoutManager = LinearLayoutManager(
                 this,
                 LinearLayoutManager.VERTICAL, false
             )
