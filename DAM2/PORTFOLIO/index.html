@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Programador | Juan Pérez</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header y Navegación -->
+    <header>
+      <div class="container">
+        <nav class="navbar">
+          <a href="#" class="logo">Portfo<span>lio</span></a>
+
+          <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </div>
+
+          <ul class="nav-links" id="navLinks">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre Mí</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Hola, soy <span class="highlight">Juan Pérez</span></h1>
+          <h2>Desarrollador Full Stack</h2>
+          <p>
+            Apasionado por crear soluciones digitales innovadoras y eficientes.
+            Especializado en JavaScript, React, Node.js y tecnologías modernas.
+          </p>
+          <div class="hero-btns">
+            <a href="#proyectos" class="btn">Ver Proyectos</a>
+            <a href="#contacto" class="btn btn-primary">Contactar</a>
+            <a href="#" class="btn btn-secondary">Descargar CV</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+            alt="Foto de perfil"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre Mí -->
+    <section id="sobre-mi">
+      <div class="container">
+        <div class="section-title">
+          <h2>Sobre Mí</h2>
+          <p>Conoce más sobre mi trayectoria y pasión por la programación</p>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <h3>Desarrollador Full Stack con 3+ años de experiencia</h3>
+            <p>
+              Soy un apasionado programador con experiencia en el desarrollo de
+              aplicaciones web y móviles. Me especializo en crear soluciones
+              escalables y eficientes utilizando las últimas tecnologías.
+            </p>
+            <p>
+              Me encanta enfrentar nuevos desafíos y aprender continuamente. Mi
+              objetivo es crear productos digitales que no solo cumplan con los
+              requisitos del cliente, sino que también ofrezcan una experiencia
+              excepcional al usuario.
+            </p>
+            <p>
+              Cuando no estoy programando, me gusta contribuir a proyectos open
+              source, aprender nuevas tecnologías y participar en hackathons.
+            </p>
+
+            <div class="info-cards">
+              <div class="card">
+                <i class="fas fa-graduation-cap"></i>
+                <h4>Educación</h4>
+                <p>Ingeniería en Sistemas Computacionales</p>
+              </div>
+              <div class="card">
+                <i class="fas fa-briefcase"></i>
+                <h4>Experiencia</h4>
+                <p>3+ años desarrollando aplicaciones web</p>
+              </div>
+              <div class="card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h4>Ubicación</h4>
+                <p>Madrid, España</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="habilidades" class="skills-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Habilidades Técnicas</h2>
+          <p>Tecnologías y herramientas que utilizo en mis proyectos</p>
+        </div>
+
+        <div class="skills-categories">
+          <div class="category">
+            <h3><i class="fas fa-code"></i> Frontend</h3>
+            <div class="skills-list">
+              <div class="skill">
+                <span>HTML5</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 95%"></div>
+                </div>
+              </div>
+              <div class="skill">
+                <span>CSS3</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill">
+                <span>JavaScript</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 88%"></div>
+                </div>
+              </div>
+              <div class="skill">
+                <span>React</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="category">
+            <h3><i class="fas fa-server"></i> Backend</h3>
+            <div class="skills-list">
+              <div class="skill">
+                <span>Node.js</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 82%"></div>
+                </div>
+              </div>
+              <div class="skill">
+                <span>Python</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 75%"></div>
+                </div>
+              </div>
+              <div class="skill">
+                <span>Express</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="skill">
+                <span>PHP</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 70%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="category">
+            <h3><i class="fas fa-database"></i> Bases de Datos</h3>
+            <div class="skills-list">
+              <div class="skill">
+                <span>MySQL</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill">
+                <span>MongoDB</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 78%"></div>
+                </div>
+              </div>
+              <div class="skill">
+                <span>PostgreSQL</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 75%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos" class="projects">
+      <div class="container">
+        <div class="section-title">
+          <h2>Mis Proyectos</h2>
+          <p>Algunos de mis trabajos más destacados</p>
+        </div>
+        <div class="projects-grid">
+          <!-- Proyecto 1 -->
+          <div class="project-card">
+            <div class="project-img">
+              <img
+                src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=774&q=80"
+                alt="E-commerce App"
+              />
+            </div>
+            <div class="project-info">
+              <h3>Plataforma E-commerce</h3>
+              <p>
+                Aplicación completa de comercio electrónico con carrito de
+                compras, sistema de pago y panel de administración.
+              </p>
+              <div class="project-tech">
+                <span>React</span>
+                <span>Node.js</span>
+                <span>MongoDB</span>
+                <span>Stripe API</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link"
+                  ><i class="fas fa-external-link-alt"></i> Demo</a
+                >
+                <a href="#" class="project-link"
+                  ><i class="fab fa-github"></i> Código</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Proyecto 2 -->
+          <div class="project-card">
+            <div class="project-img">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80"
+                alt="Task Manager App"
+              />
+            </div>
+            <div class="project-info">
+              <h3>Gestor de Tareas</h3>
+              <p>
+                Aplicación web para gestión de tareas con funciones de
+                colaboración en tiempo real y notificaciones.
+              </p>
+              <div class="project-tech">
+                <span>Vue.js</span>
+                <span>Express</span>
+                <span>Socket.io</span>
+                <span>PostgreSQL</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link"
+                  ><i class="fas fa-external-link-alt"></i> Demo</a
+                >
+                <a href="#" class="project-link"
+                  ><i class="fab fa-github"></i> Código</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Proyecto 3 -->
+          <div class="project-card">
+            <div class="project-img">
+              <img
+                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=774&q=80"
+                alt="Weather App"
+              />
+            </div>
+            <div class="project-info">
+              <h3>Aplicación del Clima</h3>
+              <p>
+                Aplicación web responsiva que muestra el pronóstico del tiempo
+                usando datos de una API externa.
+              </p>
+              <div class="project-tech">
+                <span>JavaScript</span>
+                <span>CSS3</span>
+                <span>REST API</span>
+                <span>Chart.js</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link"
+                  ><i class="fas fa-external-link-alt"></i> Demo</a
+                >
+                <a href="#" class="project-link"
+                  ><i class="fab fa-github"></i> Código</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Proyecto 4 -->
+          <div class="project-card">
+            <div class="project-img">
+              <img
+                src="https://images.unsplash.com/photo-1555421689-491a97ff2040?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80"
+                alt="Blog Platform"
+              />
+            </div>
+            <div class="project-info">
+              <h3>Plataforma de Blog</h3>
+              <p>
+                Sistema de gestión de contenido para blogs con editor
+                enriquecido y sistema de comentarios.
+              </p>
+              <div class="project-tech">
+                <span>Next.js</span>
+                <span>Node.js</span>
+                <span>MySQL</span>
+                <span>AWS S3</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link"
+                  ><i class="fas fa-external-link-alt"></i> Demo</a
+                >
+                <a href="#" class="project-link"
+                  ><i class="fab fa-github"></i> Código</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contacto</h2>
+          <p>¿Tienes un proyecto en mente? ¡Hablemos!</p>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h3>Email</h3>
+                <p>juan.perez@ejemplo.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <h3>Teléfono</h3>
+                <p>+34 123 456 789</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h3>Ubicación</h3>
+                <p>Madrid, España</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <div>
+                <h3>Disponibilidad</h3>
+                <p>Disponible para proyectos freelance</p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="form-group">
+                <input type="text" placeholder="Tu Nombre" required />
+              </div>
+              <div class="form-group">
+                <input type="email" placeholder="Tu Email" required />
+              </div>
+              <div class="form-group">
+                <input type="text" placeholder="Asunto" required />
+              </div>
+              <div class="form-group">
+                <textarea placeholder="Tu Mensaje" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Enviar Mensaje
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <div class="logo">Portfo<span>lio</span></div>
+            <p>
+              Desarrollador Full Stack apasionado por crear soluciones digitales
+              innovadoras.
+            </p>
+          </div>
+          <div class="footer-links">
+            <h3>Enlaces Rápidos</h3>
+            <ul>
+              <li><a href="#inicio">Inicio</a></li>
+              <li><a href="#sobre-mi">Sobre Mí</a></li>
+              <li><a href="#habilidades">Habilidades</a></li>
+              <li><a href="#proyectos">Proyectos</a></li>
+            </ul>
+          </div>
+          <div class="social-links">
+            <h3>Sígueme</h3>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2023 Juan Pérez. Todos los derechos reservados.</p>
+          <p>Diseñado y desarrollado con ❤️ por mí mismo</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
