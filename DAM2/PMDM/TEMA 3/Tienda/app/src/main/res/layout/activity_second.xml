@@ -8,7 +8,7 @@
     android:layout_margin="12dp"
     app:cardCornerRadius="12dp"
     android:elevation="12dp"
-    tools:context=".ui.SecondActivity">
+    tools:context=".ui.activities.SecondActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

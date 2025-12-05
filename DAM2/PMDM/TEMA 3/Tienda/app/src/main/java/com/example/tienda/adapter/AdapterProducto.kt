@@ -7,14 +7,20 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tienda.R
-import com.example.tienda.ui.SecondActivity
 import com.example.tienda.databinding.ItemProductoBinding
 import com.example.tienda.dataset.DataSet
 import com.example.tienda.model.Producto
+import com.example.tienda.ui.activities.SecondActivity
 import com.google.android.material.snackbar.Snackbar
 
 class AdapterProducto(var lista: ArrayList<Producto>, var contexto: Context) :
     RecyclerView.Adapter<AdapterProducto.MyHolder>() {
+    var listener: OnProductoCarritoListener
+
+    init {
+        listener = contexto as OnProductoCarritoListener
+    }
+
     inner class MyHolder(var binding: ItemProductoBinding) : RecyclerView.ViewHolder(binding.root)
 
     // crea un holder de la clase anidada
@@ -32,29 +38,42 @@ class AdapterProducto(var lista: ArrayList<Producto>, var contexto: Context) :
         holder: MyHolder,
         position: Int
     ) {
+
         val producto: Producto = lista[position]
         Glide.with(contexto)
             .load(producto.imagen)
             .placeholder(R.drawable.producto)
             .into(holder.binding.imagenFila)
+
+
         holder.binding.nombreFila.text = producto.nombre
         holder.binding.btnDetalle.setOnClickListener {
-            val intent = Intent(contexto, SecondActivity::class.java)
+            val intent: Intent = Intent(contexto, SecondActivity::class.java)
             intent.putExtra("Producto", producto)
             contexto.startActivity(intent)
-
         }
         holder.binding.btnCompra.setOnClickListener {
-            DataSet.addProducto(x)
+            DataSet.addProducto(producto)
+            // lanzar la accion de add carrito
+            listener.actualizarContadorCarrito()
         }
-
     }
-
 
     // cuantos elementso tendre que pintar
     override fun getItemCount(): Int {
         return lista.size
     }
 
+    fun chageList(lista: ArrayList<Producto>){
+        lista.clear()
+        this.lista = lista;
+        notifyDataSetChanged()
+        // notificaciones individuales
+    }
+
+    interface OnProductoCarritoListener {
+        fun actualizarContadorCarrito(): Unit
+
+    }
 
 }
