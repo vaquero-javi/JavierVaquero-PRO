@@ -1,8 +1,11 @@
 let botonAgregar = document.querySelector("#btnAgregar");
 let botonLimpiar = document.querySelector("#btnLimpiar");
+let botonVaciar = document.querySelector("#btnVaciar");
 let inputNombre = document.querySelector("#inputNombre");
 let inputApellido = document.querySelector("#inputApellido");
 let inputFecha = document.querySelector("#inputFecha");
+let listaAgregados = document.querySelector("#divAgregados ul");
+
 botonAgregar.addEventListener("click", (ev) => {
   let nombre = inputNombre.value;
   let apellido = inputApellido.value;
@@ -10,16 +13,18 @@ botonAgregar.addEventListener("click", (ev) => {
 
   let cosa = "";
   if (nombre.length == 0 || apellido.length == 0 || fecha.length == 0) {
-    alert("Los datos no estan completos");
+    lanzarDialogo("Error", "Faltan datos", "warning");
   } else {
-    console.log(`Nombre ${nombre}`);
-    console.log(`Apellido ${apellido}`);
-    console.log(`Fecha ${fecha}`);
+    agregarLi(nombre, apellido, fecha);
   }
 });
 
 botonLimpiar.addEventListener("click", (ev) => {
   limpiarCampos(inputNombre, inputApellido, inputFecha);
+});
+
+botonVaciar.addEventListener("click", (ev) => {
+  listaAgregados.innerHTML = "";
 });
 
 function limpiarCampos() {
@@ -37,10 +42,51 @@ function lanzarDialogo(title, text, icon) {
 }
 
 function agregarLi(nombre, apellido, fecha) {
-    
-  lanzarDialogo(
+  /* listaAgregados.innerHTML += `<li
+            class="animate__animated animate__fadeInRight list-group-item d-flex justify-content-between align-items-start"
+          >
+            ${nombre} ${apellido} ${fecha}
+          </li>`; */
+
+  let nodoLI = document.createElement("li");
+  let nodoBoton = document.createElement("button");
+
+  nodoBoton.classList.add("btn", "btn-danger");
+  nodoBoton.innerText = "Borrar";
+  nodoBoton.addEventListener("click", (e) => {
+    nodoLI.classList.remove("animate_faceInRight");
+    nodoLI.classList.add("animate_wobble");
+    setTimeout(() => {
+      nodoLI.classList.remove("animate_wobble");
+      nodoLI.classList.add("animate__backOutRight");
+      setTimeout(() => {
+        nodoBoton.remove();
+      });
+    });
+  });
+
+  nodoLI.innerText = `${nombre} ${apellido} ${fecha}`;
+  /* nodoLI.className =
+    "animate__animated animate__fadeInRight list-group-item d-flex justify-content-between align-items-start"; */
+  nodoLI.classList.add(
+    "animate__animated",
+    "animate__fadeInRight",
+    "list-group-item",
+    "d-flex",
+    "justify-content-between",
+    "align-items-start"
+  );
+
+  nodoLI.appendChild(nodoBoton);
+
+  listaAgregados.appendChild(nodoLI);
+  limpiarCampos(inputNombre, inputApellido, inputFecha);
+
+  /* lanzarDialogo(
     "Agregado correctamente",
     `Usuario con nombre ${nombre} agregado correctamente`,
     "success"
-  );
+  ); */
+
+  nodoBoton.classList.remove(animate__backOutRight)
 }
