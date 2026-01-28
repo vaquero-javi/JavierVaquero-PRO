@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './selecciones.css',
 })
 export class Selecciones {
-  seleccion = "1";
+  seleccion = '1';
+  tipoPago = '1';
 }
