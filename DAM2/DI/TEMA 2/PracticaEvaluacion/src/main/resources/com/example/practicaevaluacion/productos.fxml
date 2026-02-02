@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.practicaevaluacion.controller.ProductosController"
+            prefWidth="800" prefHeight="600">
+
+    <!-- TOP -->
+    <top>
+        <VBox spacing="5">
+            <Label fx:id="lblUsuario" text="Usuario: " />
+            <HBox spacing="10">
+                <Label fx:id="lblTotalProductos" text="Productos: 0"/>
+                <Label fx:id="lblTotalPrecio" text="Total: $0.00"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- CENTER -->
+    <center>
+        <VBox spacing="10">
+            <Label text="Productos"/>
+
+            <TableView fx:id="tblProductos" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="colNombre" text="Nombre" prefWidth="200"/>
+                    <TableColumn fx:id="colPrecio" text="Precio" prefWidth="100"/>
+                    <TableColumn fx:id="colStock" text="Stock" prefWidth="80"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="5">
+                <Button text="Comprar" fx:id="btnComprar" onAction="#comprar"/>
+                <Button text="Carrito" fx:id="btnVerCarrito" onAction="#verCarrito"/>
+                <Button text="Vaciar" fx:id="btnVaciar" onAction="#vaciarCarrito"/>
+            </HBox>
+        </VBox>
+    </center>
+
+    <!-- BOTTOM -->
+    <bottom>
+        <Label text="Tienda Online"/>
+    </bottom>
+
+</BorderPane>
