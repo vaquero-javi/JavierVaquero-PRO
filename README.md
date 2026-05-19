@@ -1,6 +1,3 @@
 # JavierVaquero-PRO
-Repositorio destinado a la subida de códigos de la asignatura de programación
+Repositorio académico con proyectos, prácticas y ejercicios del ciclo de Desarrollo de Aplicaciones Multiplataforma (DAM), incluyendo programación en varios lenguajes de programación, bases de datos, desarrollo de aplicaciones móviles y otros contenidos del ciclo.
 
-esto es un cambio que voy a realizar en el fichero
-
-## cambio desde el servidor
