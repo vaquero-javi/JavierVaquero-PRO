@@ -1,0 +1,25 @@
+<div class="col">
+  <div class="card">
+    <img [src]="item!!.Pages | portadas" class="card-img-top" style="width: 50%" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ item!!.Title | uppercase }}</h5>
+
+      <p class="card-text">Año: {{ item!!.Year }}</p>
+
+      @if (item!!.villains.length == 0) {
+        <p class="alert alert-secondary">Sin villanos</p>
+      } @else {
+        <ul class="list-group mb-2">
+          @for (v of item!!.villains; track $index) {
+            <li class="list-group-item">{{ v.name }}</li>
+          }
+        </ul>
+      }
+
+      <button (click)="verDetalle(item!!.id)" class="btn btn-primary w-100 mb-2">
+        Ver detalles
+      </button>
+      <button (click)="agregarCarrito()" class="btn btn-warning w-100">Agregar al carrito</button>
+    </div>
+  </div>
+</div>

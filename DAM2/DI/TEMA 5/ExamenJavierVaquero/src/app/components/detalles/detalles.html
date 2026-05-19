@@ -1,0 +1,34 @@
+<div class="card mt-4">
+  <div class="card-body">
+    <h4 class="mb-3">{{ libro!!.Title }}</h4>
+
+    <img [src]="libro!!.Pages | portadas" style="width: 120px" class="mb-3" />
+
+    <p><b>Año:</b> {{ libro!!.Year }}</p>
+    <p><b>Páginas:</b> {{ libro!!.Pages }}</p>
+    <p><b>Editorial:</b> {{ libro!!.Publisher }}</p>
+    <p><b>ISBN:</b> {{ libro!!.ISBN }}</p>
+    <p><b>Handle:</b> {{ libro!!.handle }}</p>
+    <p><b>Creado:</b> {{ libro!!.created_at }}</p>
+
+    <p><b>Notas:</b></p>
+    <ul class="list-group mb-3">
+      @for (n of libro!!.Notes; track $index) {
+        <li class="list-group-item">{{ n }}</li>
+      }
+    </ul>
+
+    <p><b>Villanos:</b></p>
+    @if (libro!!.villains.length == 0) {
+      <p class="alert alert-secondary">Sin villanos</p>
+    } @else {
+      <ul class="list-group mb-3">
+        @for (v of libro!!.villains; track $index) {
+          <li class="list-group-item">{{ v.name }}</li>
+        }
+      </ul>
+    }
+
+    <button class="btn btn-secondary w-100" (click)="cerrar()">Cerrar detalle</button>
+  </div>
+</div>

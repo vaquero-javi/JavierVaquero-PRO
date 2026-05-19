@@ -1,0 +1,11 @@
+<h2>Libros</h2>
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+  @for (data of libros; track $index) {
+    <app-carta-libro [item]="data"></app-carta-libro>
+  }
+</div>
+
+@if (detalle) {
+  <app-detalles [libro]="detalle"></app-detalles>
+}
