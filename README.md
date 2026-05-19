@@ -1,3 +1,3 @@
 # JavierVaquero-PRO
-Repositorio destinado a la subida de códigos del primer y segundo curso de Desarrollo de Aplicaciones Multiplataforma
+Repositorio académico con proyectos, prácticas y ejercicios del ciclo de Desarrollo de Aplicaciones Multiplataforma (DAM), incluyendo programación en varios lenguajes de programación, bases de datos, desarrollo de aplicaciones móviles y otros contenidos del ciclo.
 
